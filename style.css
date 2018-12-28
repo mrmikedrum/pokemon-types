@@ -1,0 +1,88 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* page format */
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+section {
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+    padding: 1em;
+}
+
+.type-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 500px;
+}
+
+.type {
+    padding: 0.5em;
+    border: 1px solid;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+label.type {
+    display: block;
+    position: relative;
+    color: #fff;
+    background-color: #6a8494;
+    border-color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+input:checked+label {
+    background-color: #ab576c;
+}
+#input .type.strong-hint {
+    background-color: #a8828c;
+}
+
+label::after {
+    content: 'a'; /* closed folder */
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+    content: "\f0c8";
+}
+input:checked+label::after {
+    content: '\f14a'; /* closed folder */
+}
+
+input[type=checkbox] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.suggested-types span {
+    margin-right: 0.5em;
+}
+
+#status {
+    background-color: rgb(236, 236, 236);
+}
+
+#status.defensive .type.weak {
+    background-color: red;
+}
+
+#status.offensive .type.strong-hint {
+    background-color: rgb(190, 236, 190);
+}
+#status.offensive .type.strong {
+    background-color: rgb(110, 240, 110);
+}
+
+#status.defensive .type.immune {
+    background-color: grey;
+}
